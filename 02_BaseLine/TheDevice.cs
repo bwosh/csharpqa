@@ -10,6 +10,11 @@ namespace TheDevice
 
         static TheDevice()
         {
+            Clear();
+        }
+
+        public static void Clear()
+        {
             data = new byte[width*height];
             for(int i=0;i<width*height;i++)
             {
@@ -24,7 +29,7 @@ namespace TheDevice
 
         public static int GetHeight()
         {
-            return width;
+            return height;
         }
 
         public static void SetPixel(int x, int y, bool on)
