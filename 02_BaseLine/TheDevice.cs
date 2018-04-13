@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace TheDevice
@@ -51,13 +52,19 @@ namespace TheDevice
                     for (int x = 0; x < width; x++)
                     {
                         var v = data[x + y * width];
-                        Color c = Color.FromArgb(255, v, v, v);
-                        im.SetPixel(x, y, c);
-                        var t = DateTime.UtcNow.ToString("HHmmSS");
+                        Color c;
+                        if(v==1)
+                        {
+                            c = Color.FromArgb(255, 255, 50, 50);
+                        }else{
+                            c = Color.FromArgb(255, 100, 110, 120);
+                        }
 
-                        im.Save("output/" + t + ".png");
+                        im.SetPixel(x, y, c);
                     }
                 }
+                var t = DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fffff");
+                im.Save(t + ".png", ImageFormat.Bmp);
             }
         }
 
@@ -96,7 +103,7 @@ namespace TheDevice
 
         }
 
-        public static void Visualize(bool textMode = true)
+        public static void Visualize(bool textMode = false)
         {
             if (textMode)
             {
