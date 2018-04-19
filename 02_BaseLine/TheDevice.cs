@@ -16,6 +16,13 @@ namespace TheDevice
             Clear();
         }
 
+        public static void Resize(int width, int height)
+        {
+            TheDevice.width = width;
+            TheDevice.height = height;
+            Clear();
+        }
+
         public static void Clear()
         {
             data = new byte[width * height];

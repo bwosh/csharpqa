@@ -6,6 +6,12 @@ namespace TheDevice
     {
         static void Main(string[] args)
         {
+            //TheDeviceTests();
+            Algo.Run();
+        }
+
+        public static void TheDeviceTests()
+        {
             // 1. Draw single point (data types: int, bool)
             int x = 20;
             int y = 1;
