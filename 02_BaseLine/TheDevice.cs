@@ -50,7 +50,7 @@ namespace TheDevice
             }
         }
 
-        private static void CreateGraphics()
+        private static void CreateGraphics(string fileName)
         {
             using (Bitmap im = new Bitmap(width, height))
             {
@@ -62,16 +62,16 @@ namespace TheDevice
                         Color c;
                         if(v==1)
                         {
-                            c = Color.FromArgb(255, 255, 50, 50);
+                            c = Color.FromArgb(255, 0, 0, 0);
                         }else{
-                            c = Color.FromArgb(255, 100, 110, 120);
+                            c = Color.FromArgb(255, 255, 255, 255);
                         }
 
                         im.SetPixel(x, y, c);
                     }
                 }
                 var t = DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fffff");
-                im.Save(t + ".png", ImageFormat.Bmp);
+                im.Save(fileName ?? (t + ".bmp"), ImageFormat.Bmp);
             }
         }
 
@@ -110,7 +110,7 @@ namespace TheDevice
 
         }
 
-        public static void Visualize(bool textMode = false)
+        public static void Visualize(bool textMode = true, string fileName = null)
         {
             if (textMode)
             {
@@ -118,7 +118,7 @@ namespace TheDevice
             }
             else
             {
-                CreateGraphics();
+                CreateGraphics(fileName);
             }
         }
     }

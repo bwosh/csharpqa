@@ -18,7 +18,7 @@ namespace TheDevice
             bool pixelVisible = true;
 
             TheDevice.SetPixel(x,y,pixelVisible);
-            TheDevice.Visualize();
+            TheDevice.Visualize(true);
 
             // 2. Draw single line (for)
             // ┌──────────────────────────────┐
