@@ -7,11 +7,11 @@ public static class Algo
     {
         //System.Console.WriteLine( IsPrime(31));
         // 1. Prime numbers: 1-100
-        for (int i = 2; i < 100; i++)
+        for (int p = 2; p < 100; p++)
         {
-            if (IsPrime(i))
+            if (IsPrime(p))
             {
-                System.Console.Write(i);
+                System.Console.Write(p);
                 System.Console.Write(' ');
             }
         }
@@ -32,6 +32,62 @@ public static class Algo
         // HW: (challange) Highest number (long) with maximum number of divisors long.MaxValue
         // HW(Hard): The Device: Fibbonaci numbers
         // HW(Hard): The Device: Ulam spiral (prime numbers)
+        TheDevice.TheDevice.Resize(200, 200);
+        int x = 100, y = 100, i = 1, n = 30000;
+        int movesInDirection = 0, direction = 0;
+        int maxMoves = 0;
+        int nextMoves = 1;
+
+        System.Console.WriteLine();
+
+        while (i < n)
+        {
+            movesInDirection++;
+            if (IsPrime(i))
+            {
+                TheDevice.TheDevice.SetPixel(x, y, true);
+            }
+            System.Console.WriteLine($"{i}: ({x},{y}) dir:{direction} {movesInDirection}/{maxMoves},{nextMoves}");
+
+
+            if (movesInDirection >= maxMoves)
+            {
+                direction = (direction + 1) % 4;
+                movesInDirection = 0;
+
+                if (nextMoves > maxMoves)
+                {
+                    maxMoves = nextMoves;
+                }
+                else
+                {
+                    nextMoves++;
+                }
+            }
+
+            if (direction == 1)
+            {
+                x++;
+            }
+            if (direction == 2)
+            {
+                y--;
+            }
+            if (direction == 3)
+            {
+                x--;
+            }
+            if (direction == 0)
+            {
+                y++;
+            }
+
+
+
+            i++;
+        }
+        TheDevice.TheDevice.Visualize(false, "ulam.bmp");
+
 
         System.Console.WriteLine();
     }
