@@ -24,13 +24,22 @@ namespace WatchCore.Services
 
         public void ButtonEvent(ButtonEnum button, ButtonActionType buttonActionType)
         {
-            // TODO add watch logic
-            _logger.Log("Button event:" + button + ", " + buttonActionType);
+            int a = 15;
 
-            for (int i = 0; i < 100; i++)
+            int[] tab = new int[10];
+            bool[] x;
+            //1-10 + add element 
+
+            string text = "abc"; // char
+            text = text + 'g';
+            char[] t2 = {'a','b','c'};
+
+            for (int i = 0; i < text.Length; i++)
             {
-                InverseRandomPixel();
+                text[i] = 'z' ;
             }
+
+            _logger.Log("Tere fere" + tab[2]);
 
             _gfx.Draw();
         }

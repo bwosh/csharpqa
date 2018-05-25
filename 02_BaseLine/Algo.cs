@@ -7,14 +7,20 @@ public static class Algo
     {
         //System.Console.WriteLine( IsPrime(31));
         // 1. Prime numbers: 1-100
-        for (int i = 2; i < 100; i++)
+        /*for (int i = 2; i < 100; i++)
         {
             if (IsPrime(i))
             {
                 System.Console.Write(i);
                 System.Console.Write(' ');
             }
-        }
+        }*/
+
+        int n=50;
+        System.Console.WriteLine("Interative:");
+        System.Console.WriteLine(Fib(n));
+        System.Console.WriteLine("Recursive:");
+        System.Console.WriteLine(FibRec(n));
 
         // Sample device to bitmap usage
         TheDevice.TheDevice.Resize(200, 200);
@@ -34,6 +40,33 @@ public static class Algo
         // HW(Hard): The Device: Ulam spiral (prime numbers)
 
         System.Console.WriteLine();
+    }
+
+    private static long FibRec(int n)
+    {
+        // n<0?
+
+        if(n==1 || n==2)
+        {
+            return 1;
+        }
+
+        return FibRec(n-1) + FibRec(n-2);
+    }
+
+    private static long Fib(int n)
+    {
+        long a = 1;
+        long b = 1;
+
+        for(long i=0; i<n-1;i++)
+        {
+            long c = a + b;
+            a=b;
+            b=c;
+        }
+
+        return a;
     }
 
     private static bool IsPrime(int number)
