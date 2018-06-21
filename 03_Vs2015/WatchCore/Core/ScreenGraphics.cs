@@ -10,6 +10,10 @@ namespace WatchCore.Core
         private readonly int _height;
         private readonly ScreenColor[] _screenColors;
 
+        public int Width => _width;
+
+        public int Height => _height;
+
         public ScreenGraphics(IScreen screen, int width, int height)
         {
             _screen = screen;
