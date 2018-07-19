@@ -1,10 +1,10 @@
 ﻿namespace CodeToTest
 {
-    public class ClassToTest
+    internal class ClassToTest
     {
-        public string Check()
+        public Fraction ToFraction(string number)
         {
-            return "Checking";
+            return new Fraction();
         }
     }
 }
